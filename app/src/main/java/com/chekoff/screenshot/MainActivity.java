@@ -2,6 +2,7 @@ package com.chekoff.screenshot;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -122,7 +123,7 @@ public class MainActivity extends ActionBarActivity {
 
             ByteArrayOutputStream bytes = new ByteArrayOutputStream();
             bitmap.compress(Bitmap.CompressFormat.PNG, 30, bytes);
-            File fileDir = new File(getActivity().getFilesDir(), "screenshots");
+            File fileDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "My Screenshots");
             fileDir.mkdirs();
 
             String fileName = "wf_" + System.currentTimeMillis() + ".png";
